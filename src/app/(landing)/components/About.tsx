@@ -5,10 +5,10 @@ export default function About() {
     "
     >
       <h2 className="text-4xl font-extrabold mb-6 text-center">
-        ¿Qué es FinGoal Connect?
+        ¿Qué es Asterion Connect?
       </h2>
       <p className="text-lg mb-12 max-w-2xl mx-auto text-center">
-        FinGoal Connect es la revolucionaria red social que te ayuda a alcanzar
+        Asterion Connect es la revolucionaria estrategia que te ayuda a alcanzar
         tus metas financieras con el apoyo de una comunidad comprometida y las
         poderosas herramientas de CapitalOne.
       </p>

@@ -33,58 +33,44 @@ export default function CreateGoal() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Aquí iría la lógica para publicar la meta
 
-    console.log(
-      'New goal:',
-      goal,
-      category,
-      savingAmount,
-      savingCurrent,
-      userEmail
-    )
-
-    // Save to Firestore
-    try {
-      // verificar si esta autenticado
-      if (!user) {
-        console.error('User not authenticated')
-        // Puedes mostrar un mensaje de error al usuario
-        return
-      }
-
-      const goalsCollectionRef = collection(db, 'goals')
-      const newGoalData = {
-        goal: goal,
-        description: description,
-        category: category,
-        savingAmount: savingAmount,
-        savingCurrent: savingCurrent,
-        userEmail: userEmail, // Add userEmail to the data
-        likes: 0,
-        comments: 0,
-        image: '',
-      }
-
-      if (image) {
-        newGoalData.image = image
-      }
-
-      const newGoalDoc = await addDoc(goalsCollectionRef, newGoalData)
-      console.log('Goal added with ID:', newGoalDoc.id)
-    } catch (error) {
-      console.error('Error saving goal to Firestore:', error)
-      // Puedes mostrar un mensaje de error al usuario
+    if (!user) {
+      console.error('User not authenticated')
+      return
     }
 
-    setGoal('')
-    setCategory('saving') // Reset category to saving
-    setShowSavingForm(true) // Reset form display to saving
-    setShowEntrepreneurshipForm(false)
-    setShowOwnershipForm(false)
-    setSavingAmount(0)
-    setSavingCurrent(0)
-    setImage(null) // Reset image state
+    const goalsCollectionRef = collection(db, 'goals')
+    const newGoalData = {
+      goal: goal,
+      description: description,
+      category: category,
+      savingAmount: savingAmount,
+      savingCurrent: savingCurrent,
+      userEmail: userEmail,
+      likes: 0,
+      comments: [],
+      image: '',
+    }
+
+    if (image) {
+      newGoalData.image = image
+    }
+
+    try {
+      const newGoalDoc = await addDoc(goalsCollectionRef, newGoalData)
+      console.log('Goal added with ID:', newGoalDoc.id)
+      // Reset form fields
+      setGoal('')
+      setCategory('saving')
+      setShowSavingForm(true)
+      setShowEntrepreneurshipForm(false)
+      setShowOwnershipForm(false)
+      setSavingAmount(0)
+      setSavingCurrent(0)
+      setImage(null)
+    } catch (error) {
+      console.error('Error saving goal to Firestore:', error)
+    }
   }
 
   const handleCategoryChange = (newCategory: string) => {
@@ -154,7 +140,6 @@ export default function CreateGoal() {
         // ... display an error message to the user
         // auth/operation-not-allowed: The given sign-in provider is disabled for this Firebase project. Enable it in the Firebase console, under the sign-in method tab of the Auth section.
         // auth/operation-not-allowed: This operation is not allowed. You must enable this service in the console.
-        
       }
     }
   }
@@ -224,10 +209,10 @@ export default function CreateGoal() {
         {showEntrepreneurshipForm && (
           <div>
             {/* What is your business name?
-What is your buisiness idea? (Describe in a few sentences)
-What problem does your business solve?
-How do you plan to make money? (selling products, subscription, advertising)
-What is your main target audience? (age group, interests, location) */}
+  What is your buisiness idea? (Describe in a few sentences)
+  What problem does your business solve?
+  How do you plan to make money? (selling products, subscription, advertising)
+  What is your main target audience? (age group, interests, location) */}
             <p>What is your business name?</p>
             <input
               type="text"

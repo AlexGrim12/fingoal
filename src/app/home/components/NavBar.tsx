@@ -7,6 +7,7 @@ import {
   Settings,
   NewspaperIcon,
   PlusCircle,
+  Book,
 } from 'lucide-react'
 
 export default function Navbar() {
@@ -47,6 +48,14 @@ export default function Navbar() {
       >
         <NewspaperIcon className="mr-2" />
         <span>News</span>
+      </a>
+
+      <a
+        href="https://blog-financiero-lemon.vercel.app/"
+        className="flex items-center p-2 hover:bg-indigo-600 hover:bg-opacity-5 rounded"
+      >
+        <Book className="mr-2" />
+        <span>Learn</span>
       </a>
 
       <Link

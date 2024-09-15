@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Asterion Connect
+
+## Introduction
+
+Asterion Connect is a revolutionary platform designed to help you achieve your financial goals with the support of a committed community and powerful tools from CapitalOne. It offers a unique combination of goal-setting, community engagement, and personalized educational content to empower users on their financial journeys.
+
+## Features
+
+- **Set Your Goals:** Create personalized financial goals and track your progress in real time.
+- **Connect and Share:** Join a like-minded community and share your successes and challenges.
+- **Learn and Grow:** Access personalized educational content and receive expert financial advice.
 
 ## Getting Started
 
-First, run the development server:
+To get started with Asterion Connect, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/AlexGrim12/fingoal
+   cd fingoal
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install Dependencies:**
+   Make sure you have Node.js installed. Then, run:
+   ```bash
+   npm install
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Set Up Environment Variables:**
+   Create a `.env` file in the root directory and add your environment variables. You can use the `.env.example` file as a reference.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Run the Development Server:**
+   ```bash
+   npm run dev
+   ```
 
-## Learn More
+   Visit `http://localhost:3000` in your browser to view the application.
 
-To learn more about Next.js, take a look at the following resources:
+## Contributing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+We welcome contributions to Asterion Connect! To contribute, please follow these steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -am 'Add new feature'`).
+4. Push the branch to your fork (`git push origin feature-branch`).
+5. Create a pull request.
 
-## Deploy on Vercel
+<!-- agrega que este es el repositorio de la pagina principal, pero tambien se tiene un backend en flask para inteligencia artificial, un blog para aprender sobre finanzas y un apartado de news -->
+## Dependent Repositories
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **[Asterion Connect AI](
+    https://github.com/ruyca/AsterionStartup):** Backend services for AI and machine learning models.
+- **[Asterion Connect Blog](https://github.com/BrunoRamirezG/Blog-financiero):** Educational content and financial advice.
+- **[Asterion Connect News]()**: Latest news and updates on financial markets.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+Asterion Connect is licensed under the [MIT License](LICENSE).
+
+
+## Acknowledgements
+
+- **CapitalOne:** For providing powerful tools and resources.
+- **Firebase:** For backend services and real-time database solutions.
+- **React & Next.js:** For building the frontend of the application.
+
+Thank you for checking out Asterion Connect!

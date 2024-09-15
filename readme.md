@@ -52,7 +52,8 @@ We welcome contributions to Asterion Connect! To contribute, please follow these
 - **[Asterion Connect AI](
     https://github.com/ruyca/AsterionStartup):** Backend services for AI and machine learning models.
 - **[Asterion Connect Blog](https://github.com/BrunoRamirezG/Blog-financiero):** Educational content and financial advice.
-- **[Asterion Connect News]()**: Latest news and updates on financial markets.
+- **[Asterion Connect News](https://github.com/danielcarrascomen/News-Asterion-Connect)**: Latest news and updates on financial markets.
+- **[Asterion Connect Invest](https://github.com/danielcarrascomen/stock-tracker)**: Investment tools and resources.
 
 ## License
 

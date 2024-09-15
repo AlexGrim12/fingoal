@@ -8,6 +8,7 @@ import {
   NewspaperIcon,
   PlusCircle,
   Book,
+  ArrowUp,
 } from 'lucide-react'
 
 export default function Navbar() {
@@ -48,6 +49,14 @@ export default function Navbar() {
       >
         <NewspaperIcon className="mr-2" />
         <span>News</span>
+      </a>
+
+      <a
+        href="https://stock-dashboard-seven.vercel.app/"
+        className="flex items-center p-2 hover:bg-indigo-600 hover:bg-opacity-5 rounded"
+      >
+        <ArrowUp className="mr-2" />
+        <span>Invest</span>
       </a>
 
       <a

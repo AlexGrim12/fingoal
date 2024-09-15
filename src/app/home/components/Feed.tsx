@@ -88,11 +88,27 @@ export default function Feed() {
                   <p>Saving Amount: {goal.savingAmount}</p>
                   <p>Saving Current: {goal.savingCurrent}</p>
                   <p>Remaining: {goal.savingAmount - goal.savingCurrent}</p>
-                  <p>
+                  {/* <p>
                     Progress:{' '}
                     {Math.round((goal.savingCurrent / goal.savingAmount) * 100)}
                     % complete
-                  </p>
+                  </p> */}
+
+                  {/* <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+  <div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%"></div>
+</div> */}
+                  <div className="w-52 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                    <div
+                      className="bg-blue-600 h-2.5 rounded-full"
+                      style={{
+                        width: `${
+                          (goal.savingCurrent / goal.savingAmount) * 100
+                        }%`,
+                      }}
+                    >
+                      {(goal.savingCurrent / goal.savingAmount) * 100} %
+                    </div>
+                  </div>
                 </div>
               )}
               {/* Display image if it exists */}

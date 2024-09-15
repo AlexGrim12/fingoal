@@ -49,8 +49,10 @@ export default function CreateGoal() {
       // verificar si esta autenticado
       if (!user) {
         console.error('User not authenticated')
+        // Puedes mostrar un mensaje de error al usuario
         return
       }
+
       const goalsCollectionRef = collection(db, 'goals')
       const newGoalData = {
         goal: goal,
@@ -150,6 +152,9 @@ export default function CreateGoal() {
       } catch (error) {
         console.error('Error uploading image:', error)
         // ... display an error message to the user
+        // auth/operation-not-allowed: The given sign-in provider is disabled for this Firebase project. Enable it in the Firebase console, under the sign-in method tab of the Auth section.
+        // auth/operation-not-allowed: This operation is not allowed. You must enable this service in the console.
+        
       }
     }
   }

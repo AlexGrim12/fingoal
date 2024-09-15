@@ -1,33 +1,35 @@
 'use client'
 import Link from 'next/link'
-import { SetStateAction, useState } from 'react'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../../../firebase/config'
 
 export default function Register() {
   const [name, setName] = useState('')
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const router = useRouter()
 
-  const handleNameChange = (e: {
-    target: { value: SetStateAction<string> }
-  }) => {
-    setName(e.target.value)
-  }
-
-  const handleUsernameChange = (e: {
-    target: { value: SetStateAction<string> }
-  }) => {
-    setUsername(e.target.value)
-  }
-
-  const handlePasswordChange = (e: {
-    target: { value: SetStateAction<string> }
-  }) => {
-    setPassword(e.target.value)
-  }
-
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Aquí puedes agregar la lógica para registrar al usuario
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      )
+      const user = userCredential.user
+      console.log('User registered:', user)
+      router.push('/user-profile')
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message)
+      } else {
+        setError('An unexpected error occurred')
+      }
+    }
   }
 
   return (
@@ -46,6 +48,7 @@ export default function Register() {
         <h1 className="text-3xl font-bold text-white text-center mb-8">
           Register
         </h1>
+        {error && <p className="text-red-500 mb-4">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="block text-white mb-2">
@@ -55,22 +58,24 @@ export default function Register() {
               type="text"
               id="name"
               value={name}
-              onChange={handleNameChange}
+              onChange={(e) => setName(e.target.value)}
               className="w-full px-3 py-2 rounded bg-white-700 text-zinc-900"
               placeholder="Enter your name"
+              required
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="username" className="block text-white mb-2">
-              Username:
+            <label htmlFor="email" className="block text-white mb-2">
+              Email:
             </label>
             <input
-              type="text"
-              id="username"
-              value={username}
-              onChange={handleUsernameChange}
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-3 py-2 rounded bg-white-700 text-zinc-900"
-              placeholder="Enter your username"
+              placeholder="Enter your email"
+              required
             />
           </div>
           <div className="mb-6">
@@ -81,13 +86,17 @@ export default function Register() {
               type="password"
               id="password"
               value={password}
-              onChange={handlePasswordChange}
+              onChange={(e) => setPassword(e.target.value)}
               className="w-full px-3 py-2 rounded bg-white-700 text-zinc-900"
               placeholder="Enter your password"
+              required
             />
           </div>
-          <button className="text-white rounded-lg bg-white bg-opacity-20 p-2 hover:bg-white hover:bg-opacity-30 transition duration-300 ease-in-out cursor-pointer">
-            <Link href="/home">Register</Link>
+          <button
+            type="submit"
+            className="w-full text-white rounded-lg bg-white bg-opacity-20 p-2 hover:bg-white hover:bg-opacity-30 transition duration-300 ease-in-out cursor-pointer"
+          >
+            Register
           </button>
         </form>
         <div>

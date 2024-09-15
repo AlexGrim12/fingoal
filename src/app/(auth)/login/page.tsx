@@ -1,26 +1,36 @@
 'use client'
 import Link from 'next/link'
-import { SetStateAction, useState } from 'react'
+import { useState } from 'react'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../../../firebase/config'
+import { useRouter } from 'next/navigation'
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const router = useRouter()
 
-  const handleEmailChange = (e: {
-    target: { value: SetStateAction<string> }
-  }) => {
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value)
   }
 
-  const handlePasswordChange = (e: {
-    target: { value: SetStateAction<string> }
-  }) => {
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value)
   }
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Aquí puedes agregar la lógica para autenticar al usuario
+    setError('')
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password)
+      // Si la autenticación es exitosa, redirige al usuario a la página de inicio
+      router.push('/home')
+    } catch (error) {
+      setError('Failed to log in. Please check your email and password.')
+      console.error(error)
+    }
   }
 
   return (
@@ -39,6 +49,7 @@ export default function Login() {
         <h1 className="text-3xl font-bold text-white text-center mb-8">
           Login
         </h1>
+        {error && <p className="text-red-500 mb-4">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="email" className="block text-white mb-2">
@@ -66,11 +77,12 @@ export default function Login() {
               placeholder="Enter your password"
             />
           </div>
-          <Link href="/home">
-            <button className="text-white rounded-lg bg-white bg-opacity-20 p-2 hover:bg-white hover:bg-opacity-30 transition duration-300 ease-in-out cursor-pointer">
-              Login
-            </button>
-          </Link>
+          <button
+            type="submit"
+            className="w-full text-white rounded-lg bg-white bg-opacity-20 p-2 hover:bg-white hover:bg-opacity-30 transition duration-300 ease-in-out cursor-pointer"
+          >
+            Login
+          </button>
         </form>
         <div>
           <p className="text-white mt-4">

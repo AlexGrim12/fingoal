@@ -1,29 +1,26 @@
 export default function About() {
   return (
-    <section
-      className="p-12 text-white text-center flex flex-col justify-center lg:mx-32
-    "
-    >
+    <section className="p-12 text-white text-center flex flex-col justify-center lg:mx-32">
       <h2 className="text-4xl font-extrabold mb-6 text-center">
-        ¿Qué es Asterion Connect?
+        What is Asterion Connect?
       </h2>
       <p className="text-lg mb-12 max-w-2xl mx-auto text-center">
-        Asterion Connect es la revolucionaria estrategia que te ayuda a alcanzar
-        tus metas financieras con el apoyo de una comunidad comprometida y las
-        poderosas herramientas de CapitalOne.
+        Asterion Connect is the revolutionary strategy that helps you achieve
+        your financial goals with the support of a committed community and the
+        powerful tools from CapitalOne.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <FeatureCard
-          title="Establece tus metas"
-          description="Crea metas financieras personalizadas y sigue tu progreso en tiempo real."
+          title="Set Your Goals"
+          description="Create personalized financial goals and track your progress in real time."
         />
         <FeatureCard
-          title="Conecta y comparte"
-          description="Únete a una comunidad de personas con mentalidad similar y comparte tus éxitos."
+          title="Connect and Share"
+          description="Join a like-minded community and share your successes."
         />
         <FeatureCard
-          title="Aprende y crece"
-          description="Accede a contenido educativo personalizado y consejos de expertos financieros."
+          title="Learn and Grow"
+          description="Access personalized educational content and financial expert advice."
         />
       </div>
     </section>

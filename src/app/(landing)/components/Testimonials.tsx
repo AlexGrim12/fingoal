@@ -30,12 +30,12 @@ export default function Testimonials() {
   const testimonials: TestimonialData[] = [
     {
       quote:
-        'Gracias a FinGoal Connect, logré ahorrar para mi primera casa en tiempo récord. ¡La comunidad es increíble!',
-      author: 'María G.',
+        'Thanks to AsterionConnect, I managed to save for my first home in record time. The community is amazing!',
+      author: 'Maria G.',
     },
     {
       quote:
-        'Estoy muy agradecido por el apoyo y la orientación que he recibido de la comunidad. ¡Gracias, FinGoal!',
+        'I am very grateful for the support and guidance I have received from the community. Thank you, AsterionConnect!',
       author: 'Juan P.',
     },
     // Puedes agregar más testimonios aquí
@@ -60,7 +60,7 @@ export default function Testimonials() {
   return (
     <section className="p-6 lg:m-36 text-center">
       <h2 className="text-3xl font-extrabold mb-8 text-white">
-        Lo que dicen nuestros usuarios
+        What our users say
       </h2>
       <div className="relative max-w-4xl mx-auto px-14">
         <AnimatePresence mode="wait">

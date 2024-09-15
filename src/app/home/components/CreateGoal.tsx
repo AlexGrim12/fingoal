@@ -5,6 +5,7 @@ import { collection, addDoc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
 import { v4 as uuidv4 } from 'uuid'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
+import CapitalOneAd from './CapitalOne'
 
 // Remove the unused Goal interface
 // export default function CreateGoal() {
@@ -21,11 +22,11 @@ export default function CreateGoal() {
   const [savingCurrent, setSavingCurrent] = useState(0) // Current amount for saving goal
   const [image, setImage] = useState<string | null>(null)
 
-  const [q1, setQ1] = useState('')
-  const [q2, setQ2] = useState('')
-  const [q3, setQ3] = useState('')
-  const [q4, setQ4] = useState('')
-  const [q5, setQ5] = useState('')
+  // const [q1, setQ1] = useState('')
+  // const [q2, setQ2] = useState('')
+  // const [q3, setQ3] = useState('')
+  // const [q4, setQ4] = useState('')
+  // const [q5, setQ5] = useState('')
 
   const auth = getAuth()
   const user = auth.currentUser
@@ -159,7 +160,7 @@ export default function CreateGoal() {
           }`}
           onClick={() => handleCategoryChange('saving')}
         >
-          saving
+          Saving
         </button>
         <button
           className={`px-2 py-1 bg-amber-500 text-white rounded ${
@@ -167,7 +168,7 @@ export default function CreateGoal() {
           }`}
           onClick={() => handleCategoryChange('entrepreneurship')}
         >
-          entrepreneurship
+          Entrepreneurship
         </button>
         <button
           className={`px-2 py-1 bg-orange-500 text-white rounded ${
@@ -213,47 +214,14 @@ export default function CreateGoal() {
   What problem does your business solve?
   How do you plan to make money? (selling products, subscription, advertising)
   What is your main target audience? (age group, interests, location) */}
-            <p>What is your business name?</p>
-            <input
-              type="text"
-              value={q1}
+            <textarea
               className="w-full p-2 border rounded bg-zinc-900 text-white border-none focus:outline-none"
-              onChange={(e) => setQ1(e.target.value)}
+              rows={3}
+              placeholder="Entrepreneurship description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
             />
-            <p>What is your buisiness idea? (Describe in a few sentences)</p>
-            <input
-              type="text"
-              value={q2}
-              className="w-full p-2 border rounded bg-zinc-900 text-white border-none focus:outline-none"
-              onChange={(e) => setQ2(e.target.value)}
-            />
-            <p>What problem does your business solve?</p>
-            <input
-              type="text"
-              value={q3}
-              className="w-full p-2 border rounded bg-zinc-900 text-white border-none focus:outline-none"
-              onChange={(e) => setQ3(e.target.value)}
-            />
-            <p>
-              How do you plan to make money? (selling products, subscription,
-              advertising)
-            </p>
-            <input
-              type="text"
-              value={q4}
-              className="w-full p-2 border rounded bg-zinc-900 text-white border-none focus:outline-none"
-              onChange={(e) => setQ4(e.target.value)}
-            />
-            <p>
-              What is your main target audience? (age group, interests,
-              location)
-            </p>
-            <input
-              type="text"
-              value={q5}
-              className="w-full p-2 border rounded bg-zinc-900 text-white border-none focus:outline-none"
-              onChange={(e) => setQ5(e.target.value)}
-            />
+            <CapitalOneAd />
           </div>
         )}
         {showOwnershipForm && (
@@ -265,6 +233,7 @@ export default function CreateGoal() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
+            <CapitalOneAd />
           </div>
         )}
         {/* Image upload */}

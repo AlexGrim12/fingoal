@@ -9,10 +9,10 @@ export default function HeaderLogout() {
       </h1>
       <div>
         <button className="text-white font-bold text-l bg-opacity-0 mr-2 bg-white p-2 rounded-lg border-2 border-white border-opacity-20 hover:bg-opacity-30 transition duration-300">
-          <Link href="/register">Registrarse</Link>
+          <Link href="/register">Register</Link>
         </button>
         <button className="text-white font-bold text-l bg-opacity-20 bg-white p-2 rounded-lg border-2 border-white border-opacity-5 hover:bg-opacity-30  transition duration-300">
-          <Link href="/login">Iniciar Sesión</Link>
+          <Link href="/login">Login</Link>
         </button>
       </div>
     </header>

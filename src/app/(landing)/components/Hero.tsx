@@ -10,18 +10,18 @@ export default function Hero() {
           AsterionConnect
         </h1>
         <p className="mt-4 mb-8 text-xl text-white max-w-md">
-          Alcanza tus metas financieras en comunidad
+          Reach your financial goals together
         </p>
         <Link href={'/register'}>
           <button className="mt-6 px-8 py-3 bg-indigo-600 text-white rounded-lg text-lg font-bold hover:bg-indigo-500 transition-transform transform hover:scale-105 duration-300 ease-in-out shadow-xl focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-offset-2">
-            ¡Únete ahora!
+            Join Now!
           </button>
         </Link>
       </div>
       <div className="mt-8 md:mt-0">
         <Image
           src={hero}
-          alt="FinGoal Connect hero"
+          alt="AsterionConnect hero"
           width={450}
           height={450}
           className="transform hover:scale-105 transition-transform duration-500"

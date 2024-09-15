@@ -7,7 +7,7 @@ export default function Hero() {
     <div className="flex flex-col md:flex-row justify-between items-center px-8 h-4/5 lg:mx-32 mt-12">
       <div className="text-center md:text-left">
         <h1 className="text-5xl font-extrabold text-white tracking-tight">
-          FinGoal
+          AsterionConnect
         </h1>
         <p className="mt-4 mb-8 text-xl text-white max-w-md">
           Alcanza tus metas financieras en comunidad

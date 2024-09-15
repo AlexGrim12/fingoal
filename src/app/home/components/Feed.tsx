@@ -100,7 +100,9 @@ export default function Feed() {
                 <Image
                   src={goal.image}
                   alt="Goal Image"
-                  className="mt-2 w-full h-auto"
+                  className="mt-2 mx-auto w-96 h-auto rounded-md shadow-xl border-2 border-white"
+                  width={500}
+                  height={300}
                 />
               )}
               <div className="mt-4 flex justify-between text-gray-200">

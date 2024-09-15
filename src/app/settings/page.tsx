@@ -1,10 +1,10 @@
 'use client'
 import React from 'react'
 import { getAuth } from 'firebase/auth'
-import router from 'next/router'
+import { useRouter } from 'next/navigation'
 
 export default function Settings() {
-  // Add logout function here
+  const router = useRouter()
 
   const handleLogout = async () => {
     try {

@@ -46,6 +46,11 @@ export default function CreateGoal() {
 
     // Save to Firestore
     try {
+      // verificar si esta autenticado
+      if (!user) {
+        console.error('User not authenticated')
+        return
+      }
       const goalsCollectionRef = collection(db, 'goals')
       const newGoalData = {
         goal: goal,

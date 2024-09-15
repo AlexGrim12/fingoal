@@ -2,6 +2,7 @@
 import React from 'react'
 import { getAuth } from 'firebase/auth'
 import { useRouter } from 'next/navigation'
+import { FriendsList, Navbar } from '../home/components'
 
 export default function Settings() {
   const router = useRouter()
@@ -18,25 +19,33 @@ export default function Settings() {
   }
 
   return (
-    <div
-      className="
-      min-h-screen
-      flex
-      justify-center
-      items-center
-      text-white
-      font-sans
-    "
-    >
-      <div>
-        <h1>Settings</h1>
-      </div>
-      <button
-        onClick={handleLogout}
-        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+    <div className="flex min-h-screen text-white">
+      <div
+        className="
+        w-1/5 shadow-md
+      "
       >
-        Log out
-      </button>
+        <Navbar />
+      </div>
+      <div
+        className="
+        flex flex-col items-center justify-center w-3/5
+      "
+      >
+        <h1>Settings</h1>
+
+        <button
+          onClick={handleLogout}
+          className="
+          px-4 py-2 rounded-md bg-red-500 text-white
+        "
+        >
+          Log out
+        </button>
+      </div>
+      <div className="flex min-h-screen text-white">
+        <FriendsList />
+      </div>
     </div>
   )
 }

@@ -130,8 +130,8 @@ export default function Feed() {
             <p className="mt-2">{goal.content}</p>
             {goal.savingAmount && goal.savingCurrent && (
               <div className="flex justify-between text-gray-200">
-                <p>Saving Amount: {goal.savingAmount}</p>
-                <p>Saving Current: {goal.savingCurrent}</p>
+                <p>Target: {goal.savingAmount}</p>
+                <p>Current: {goal.savingCurrent}</p>
                 <p>Remaining: {goal.savingAmount - goal.savingCurrent}</p>
                 <div className="w-52 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
